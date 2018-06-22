@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+</h:head>
+<h:body>
+	<h2>Frases Celebres</h2>
+	<h:form id="form">
+		<h:selectOneMenu value="#{viewManager.categoria}">
+			<f:selectItems value="#{viewManager.listaCategorias}"></f:selectItems>
+		</h:selectOneMenu>
+		<h:commandButton value="Mostrar" action="#{viewManager.listar}" />
+		
+		<p:carousel value="#{viewManager.listaF}" headerText="Frase" var="f"
+			itemStyle="height:280px;text-align:center" numVisible="1"
+			easing="easeOutBounce" style="width:250px;" cricular="true" rendered="#{viewManager.categoria != null}">
+			<h:panelGrid columns="2" style="width:100%"
+				columnClasses="label,value">
+				<f:facet name="header">
+					Frase:
+				</f:facet>
+
+				<h:outputText value="#{f.frase}" />
+				
+
+				<f:facet name="footer">
+					<p:commandButton update="form:display" oncomplete="PF('dialog').show()"
+						icon="ui-icon-search">
+						<f:setPropertyActionListener value="#{f}"
+							target="#{viewManager.f}" />
+					</p:commandButton>
+				</f:facet>
+			</h:panelGrid>
+		</p:carousel>
+		<p:dialog header="Autor Info" widgetVar="dialog" modal="true"
+			showEffect="fade" hideEffect="fade" resizable="false">
+			<p:outputPanel id="display" style="text-align:CENTER;">
+				<p:panelGrid columns="2"
+					
+					columnClasses="label,value">
+
+					<h:outputText value="Autor:" />
+					<h:outputText value="#{viewManager.f.autor.nombre_completo}" />
+					<h:outputText value="Fecha de nacimiento: " />
+					<h:outputText value="#{viewManager.f.autor.fecha_nac}" > <f:convertDateTime pattern="d-M-yyyy" /></h:outputText>
+				</p:panelGrid>
+			</p:outputPanel>
+		</p:dialog>
+	</h:form>
+	<!-- <h:outputText value="No hay datos en la Tabla!" rendered="" />
+ -->
+</h:body>
+</html>

@@ -1,0 +1,27 @@
+10/05/2017
+
+Despues de marearme muchisimo he solucionado el problema final para que el proyecto funcione perfectamente, y este era el problema y la solucion:
+
+<p:commandButton update="form:display" oncomplete=>>"PF('dialog')<<.show()"
+
+Ese PF(' ')
+
+Una vez hecho esto ya me ha salido la ventana, adjunto imagen de la salida de la aplicacion :), ya por fin puedo avanzar.
+
+--
+
+Tema aparte, ya se que tecnología usan alli, son de la junta de andalucia, como ya nos comentaste en su dia trabajan con java, utilizan Springframework junto con hibernate, y más cosas.
+tambien utilizan subversion como repositorio, aunque yo de momento no tendré acceso hasta por lo menos que empiece a desarrollar algo importante. me he traido un pom.xml de un proyecto
+para que veas las versiones de las dependencias que utilizan y cuales manejan, lo he colocado fuera de esta carpeta para no mezclar, para que sea mas legible voy a renombrar el archivo a 
+pomNovayre que es la empresa colaboradora de la fundacion Progreso y Salud que se encarga de la parte de desarrollo web.
+
+15/05/2017
+
+	He corregido un error que no había visto, resulta que al tener mas de una frase en una categoría, el valor de la propiedad categoría se perdía y no me mostraba el autor ni fecha que correspondía
+	a la frase que estaba mostrando, la mostraba al segundo click, observando el proyecto de frasesCelebres3, me di cuenta de que en lugar de recibir un objeto de la clase frase como hacía yo,
+	recibía un string que se controlaba desde el viewManager, creandonos una variable de tipo String que al realizarle el set de esa propiedad actualizabamos el valor de la categoría en el método
+	que nos mostraba la frase, el autor y la fecha según la categoría,  de forma continua con lo cual,  cada vez que seleccionamos una categoría en la vista esta se actualiza correctamente, y al darle
+	 al icono con forma de  lupa también llamamos al método listaFrases con lo que se actualiza la categoría y así nos muestra los datos adecuadamente.
+
+	PD: realizé un insert más de la categoría Pensamientos para comprobar si de verdad al hacer click en la lupa me aparecía su autor y fecha corresponidente y no otro.
+
