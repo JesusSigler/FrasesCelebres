@@ -45,7 +45,7 @@
 					<h:outputText value="Autor:" />
 					<h:outputText value="#{viewManager.f.autor.nombre_completo}" />
 					<h:outputText value="Fecha de nacimiento: " />
-					<h:outputText value="#{viewManager.f.autor.fecha_nac}" > <f:convertDateTime pattern="dd-M-yyy" /></h:outputText>
+					<h:outputText value="#{viewManager.f.autor.fecha_nac}" > <f:convertDateTime timeZone="CET" pattern="d-M-yyy" /></h:outputText>
 				</p:panelGrid>
 			</p:outputPanel>
 		</p:dialog>
