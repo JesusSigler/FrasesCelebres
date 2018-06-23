@@ -1,5 +1,7 @@
 # FrasesCelebres
 
+Aplicación realizada con fines didácticos, realizada para la asignatura de Servidor del grado superior de Desarrollo de Aplicaciones Web.
+
 Para desplegar la aplicación
 
 Crear base de datos frases_celebres
